@@ -1,0 +1,131 @@
+GET /mysql_logstashplugin_test/_search
+{
+  "query":{
+    "match_all":{}
+  }
+}
+
+DELETE /testproducts/_doc/0CQ8128BVJDk-6FpABK8
+
+DELETE /mysql_logstashplugin_test
+
+GET /products/_doc/10
+
+GET /testproducts/_mapping
+
+GET /products/_search
+{
+  "query":{
+    "term":{
+      "created":"2004/05/13"
+    }
+  }
+}
+
+GET /testproducts2/_search
+{
+  "query":{
+    "match":{
+      "created":"2019-11-23 16:34:55"
+    }
+  }
+}
+
+PUT /testproducts2
+{
+  "mappings": {
+    "dynamic": false,
+    "properties": {
+      "name": {
+        "type": "text"
+      },
+      "price": {
+        "type": "integer"
+      },
+      "in_stock": {
+        "type": "integer"
+      },
+      "created": {
+        "type": "date",
+        "format":"yyyy-MM-dd HH:mm:ss"
+      }
+    }
+  }
+}  
+
+POST /testproducts2/_doc
+{
+  "name": "Coffee Mugs",
+  "price": 10,
+  "in_stock": 80,
+  "created":"2019-11-23 16:34:55"
+}
+
+GET /<index_name>/_search
+{
+  "query": {
+     "bool":{
+         "should":[
+          {
+           "match":{
+              "organizer_email": "some_email@gmail.com"
+            },
+            "attendees":{
+                "values":["Person 1","Person 2","person1@email.com","person2@email.com"]
+            }
+          }
+      ], 
+        "filter": {
+           "range" : {
+              "starttime" : { 
+                  "gte": "2019-11-14 16:00:00", 
+                  "lte": "2019-11-16 16:00:00" 
+               }
+           }
+         }
+      }
+   }
+}
+
+GET /testproducts2/_search
+{
+  "query": {
+     "range" : {
+      "created" : { 
+        "gte": "2019-11-22 00:00:00", 
+        "lte": "2019-11-25 00:00:00" 
+      }
+     }
+   }
+}
+
+POST _analyze 
+{
+  "tokenizer":"standard",
+  "text":"abc cedf"
+}
+
+POST _analyze
+{
+  "analyzer":"standard",
+  "text":"2019-11-12 16:00:00"
+}
+
+GET /testproducts/_explain/0SQ8128BVJDk-6FpbBI4
+{
+  "query": {
+     "range" : {
+      "created" : { 
+        "gte": "2019-11-22 16:34:55", 
+        "lte": "2019-11-24 16:34:55" 
+      }
+     }
+   }
+}
+
+POST /meetings/_bulk "@D:/Customer360/ES_sample_data/sample_meetings_data.json"
+
+
+
+
+

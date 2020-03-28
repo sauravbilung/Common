@@ -1,0 +1,26 @@
+######################################################################################
+How to Check which process is running on particular port on Windows :
+
+1) Find the process id(PID) using port no :
+     netstat -aon | findstr <port number>
+	 
+	 netstat - command utility for displaying network connection which are using TCP 	 
+	 -a Displays all connections and listening ports.
+     -o Displays owning process Id associated with each connection.
+     -n Displays addresses and port numbers in numerical forms
+
+2) Find process application name using PID 	:
+     tasklist | findstr <PID>
+	 
+#######################################################################################
+
+
+TO find Port no for a Process name :
+
+Reverse the steps	 
+
+
+#######################################################################################
+
+tasklist - lists the currently running process
+	 
