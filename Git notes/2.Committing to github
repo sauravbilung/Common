@@ -1,0 +1,18 @@
+Committing data to a repository :
+After cofiguring git in linux and creating an account on Github these steps are followed :
+1) create a repository in github
+
+2) Goto the projects folder which we want to commit.
+
+3) type "git init" : This command sets up all of the necessary files and directories that Git will use to keep track of everything. Basically it creates a local repository for versioning. It will have all the information which git will need to for version control.
+
+4) git add . :There is a space between "add" and ".". It puts the project into staging area.This means git will keep all the newly added or modified files here. It helps git know what changes/additions will be made to the git repository.
+
+5) git commit -m "m flag indicates the message which is added here".
+
+6) git remote add orgin "github repository url".
+   To see what orgin are configured : git remote -v
+   To delete an existing origin : git remote rm origin 
+
+7) git push -f origin master
+

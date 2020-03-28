@@ -1,0 +1,27 @@
+To Start mysql from terminal : mysql -u root -p  
+
+Note : 1) use -p if password is enabled else skip it
+       2) -u : for user
+       3) root : is a user 
+
+########################################################################
+
+To determine which database is select : select DATABASE() from dual;
+
+########################################################################
+
+To change password (older versions):
+
+use mysql (mysql configurations are in this db)
+UPDATE user SET Password=PASSWORD('my_password') where USER='root';
+FLUSH PRIVILEGES;
+
+########################################################################
+
+To changes password (mysql 8):
+
+use mysql;
+FLUSH PRIVILEGES;
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'MyNewPass';
+
+########################################################################

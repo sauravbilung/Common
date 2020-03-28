@@ -1,0 +1,13 @@
+Steps for installing and configuring GIT in linux:
+
+1) Download from here : https://git-scm.com/ (Follow the steps)
+2) check if it is installed successfully : git --version
+3) Create an account on github
+4) Configure it with linux:
+       git config --global user.name "github username"
+       git config --global user.email "github email"
+5) To check the git configurations :
+       git config --list
+    These informations are stored in home directory. "home/username/.gitconfig" 
+
+
