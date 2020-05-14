@@ -1,0 +1,25 @@
+The Spring Tool Suite is an Eclipse-based development environment that is customized for developing Spring applications.
+
+Steps: 
+
+1) Step 1:Download the latest Spring Tool Suite for Linux from STS official website: http://spring.io/tools/sts/all 
+
+2) Step 2:Extract into any folder which you prefer. My extracted Spring Tool Suite locations is /home/some_path/springsource
+
+3) Step 3:Create the Menu icon for quick access : sudo vim /usr/share/applications/STS.desktop
+
+4) Step 4:Enter the following content 
+
+[Desktop Entry]
+Name=SpringSource Tool Suite
+Comment=SpringSource Tool Suite
+Exec=/home/some_path/springsource/sts-3.4.0-RELEASE/STS
+Icon=/home/some_path/springsource/sts-3.4.0-RELEASE/icon.xpm
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Development;IDE;Java;
+
+
+5) Step 5: Now you can check from Quick Menu by typing "Spring" 
+
