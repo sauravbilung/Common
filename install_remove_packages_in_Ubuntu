@@ -1,0 +1,18 @@
+To uninstall packages in ubuntu:
+
+1: dpkg -P package-name (P caps , P:Purge)
+2: apt/apt-get remove package-name
+
+##################################################################################
+
+To force the installation along with download of unment dependencies in ubuntu:
+
+1:sudo apt install -f ./package-name.deb (to not force remove -f flag)
+
+#####################################################################################
+
+Other way of installation using dpkg
+
+1: dpkg -i deb-package-name.deb
+
+###############################################################################
