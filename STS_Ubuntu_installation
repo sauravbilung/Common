@@ -1,4 +1,5 @@
-The Spring Tool Suite is an Eclipse-based development environment that is customized for developing Spring applications.
+The Spring Tool Suite is an Eclipse-based development environment that is customized for developing Spring applications. Below steps are same
+for Eclipse IDE as well.
 
 Steps: 
 
@@ -7,6 +8,8 @@ Steps:
 2) Step 2:Extract into any folder which you prefer. My extracted Spring Tool Suite locations is /home/some_path/springsource
 
 3) Step 3:Create the Menu icon for quick access : sudo vim /usr/share/applications/STS.desktop
+                                    or
+          If the above location does not work create menu here : nano .local/share/applications/STS.desktop
 
 4) Step 4:Enter the following content 
 
@@ -19,6 +22,19 @@ StartupNotify=true
 Terminal=false
 Type=Application
 Categories=Development;IDE;Java;
+
+          or
+
+[Desktop Entry]
+Name=SpringSource Tool Suite
+Type=Application
+Exec=/home/some_Path/SpringToolSuite4
+Terminal=false
+Icon=/home/some_Path/icon.xpm
+Comment=Integrated Development Environment
+NoDisplay=false
+Categories=Development;IDE;
+Name[en]=Eclipse
 
 
 5) Step 5: Now you can check from Quick Menu by typing "Spring" 
