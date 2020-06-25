@@ -7,9 +7,9 @@ Steps:
 
 2) Step 2:Extract into any folder which you prefer. My extracted Spring Tool Suite locations is /home/some_path/springsource
 
-3) Step 3:Create the Menu icon for quick access : sudo vim /usr/share/applications/STS.desktop
+3) Step 3:Create the Menu icon for quick access : sudo nano /usr/share/applications/STS.desktop
                                     or
-          If the above location does not work create menu here : nano .local/share/applications/STS.desktop
+          If the above location does not work create menu here : gedit .local/share/applications/STS.desktop
 
 4) Step 4:Enter the following content 
 
