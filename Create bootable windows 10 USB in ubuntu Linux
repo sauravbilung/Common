@@ -1,0 +1,5 @@
+1) Download WoeUSB from here. (https://github.com/WoeUSB)
+2) Plug in the pendrive. Delete the partion of the pendrive using "Disks" application in ubuntu. That's it for this step.
+3) Run : sudo woeusb --target-filesystem NTFS --device 'location of windows ISO' 'target device' 
+   -- Eg : sudo woeusb --target-filesystem NTFS --device '/home/sauravbilung/Downloads/Win10_20H2_v2_English_x64.iso' '/dev/sdb'
+4) The process will take about 45 mins – 50 mins to get completed.
