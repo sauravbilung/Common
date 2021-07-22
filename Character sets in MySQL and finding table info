@@ -1,0 +1,81 @@
+How do I see what character set a MySQL database / table / column is?
+
+----------------------------------------------------------------------------------------------------
+1) For Schemas (or Databases - they are synonyms):
+
+SELECT default_character_set_name FROM information_schema.SCHEMATA 
+WHERE schema_name = "schemaname";
+
+                   or 
+
+show variables like "character_set_database";    
+
+2) For tables : 
+
+SELECT CCSA.character_set_name FROM information_schema.`TABLES` T,
+       information_schema.`COLLATION_CHARACTER_SET_APPLICABILITY` CCSA
+WHERE CCSA.collation_name = T.table_collation
+  AND T.table_schema = "schemaname"
+  AND T.table_name = "tablename";
+
+3) For columns : 
+
+SELECT character_set_name FROM information_schema.`COLUMNS` 
+WHERE table_schema = "schemaname"
+  AND table_name = "tablename"
+  AND column_name = "columnname";
+
+            or 
+            
+SHOW FULL COLUMNS FROM table_name;    
+
+4) For all the database on the server :
+
+SELECT SCHEMA_NAME 'database', default_character_set_name 'charset', DEFAULT_COLLATION_NAME 'collation' FROM information_schema.SCHEMATA;
+
+
+--------------------------------------------------------------------------------------------------
+To change character set : 
+
+ALTER DATABASE databasename CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+ALTER TABLE tablename CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+---------------------------------------------------------------------------------------------------
+1) Create database with specific char set and collate : 
+
+CREATE DATABASE mydatabase CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+
+2) Create table :
+
+create table if not exists cities_staging(
+   geoname_id varchar(20),
+   name VARCHAR(255),
+   country VARCHAR(255),
+   country_iso_code VARCHAR(255),
+   region VARCHAR(255)
+) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+
+Newer utf version supported by mysql 8 : utf8mb4_0900_ai_ci
+----------------------------------------------------------------------------------------------------
+How should I tackle --secure-file-priv in MySQL?
+
+We want to load data into mysql table from  some file. There are two options disable :
+1) Disable secure-file-priv. This must be removed from startup and cannot be modified dynamically. 
+   To do this check your MySQL start up parameters (depending on platform) and my.ini.
+
+2) Move your file to the directory specified by secure-file-priv. If MySQL server has been started with --secure-file-priv option it limits 
+   from which directories we can load files using LOAD DATA INFILE.We can use SHOW VARIABLES LIKE "secure_file_priv"; 
+   to see the directory that has been configured.
+
+LOAD DATA INFILE '/var/lib/mysql-files/cities' 
+INTO TABLE cities_staging 
+FIELDS TERMINATED BY ',' 
+ENCLOSED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+-------------------------------------------
+To check mysql version : SHOW VARIABLES LIKE "%version%";
+-------------------------------------------
+
+To get table creation query : show create table cities_staging
+    
