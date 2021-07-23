@@ -78,4 +78,7 @@ To check mysql version : SHOW VARIABLES LIKE "%version%";
 -------------------------------------------
 
 To get table creation query : show create table cities_staging
-    
+---------------------------------------------
+Find all the records from a table in which a particluar column has non-alphanumeric characters excluding space and hyphens :
+SELECT * FROM tableName WHERE colName REGEXP '[^a-zA-Z0-9[.hyphen-minus.][.space.]]';
+----------------------------------------------------------------------------------------------
