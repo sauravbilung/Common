@@ -1,0 +1,6 @@
+Some useful linux commands:
+
+1) To count occurence of a character in a file.
+  grep -o "a" test.csv|wc -l
+2) To search for a file :
+  find ./ -name test.csv
